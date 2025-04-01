@@ -61,6 +61,7 @@ footer a {
     text-decoration: none;
     margin: 0 5px;
 }
+
 .stepper {
     margin: 10px 0;
     font-size: 1.1em;
@@ -86,7 +87,7 @@ label {
     margin-bottom: 5px;
 }
 
-input, select {
+input, select, textarea {
     width: 100%;
     padding: 8px;
     margin-bottom: 10px;
@@ -131,6 +132,7 @@ button:hover {
 .tutorial-content h3 {
     margin-top: 0;
 }
+
 table {
     width: 100%;
     max-width: 600px;
@@ -148,6 +150,7 @@ th {
     background-color: #007BFF;
     color: white;
 }
+
 ul {
     list-style: none;
     padding: 0;
