@@ -1,24 +1,54 @@
-// Show tutorial modal
-function showTutorial(modalId) {
-    document.getElementById(modalId).style.display = 'flex';
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-839">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Step 1 - Safety First</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Safety First</h1>
+        <div class="stepper">
+            <span class="active">Step 1: Project</span> | 
+            <span>Step 2: Risks</span> | 
+            <span>Step 3: Specs</span> | 
+            <span>Step 4: Agreement</span>
+        </div>
+    </header>
+    <main>
+        <h2>Set Up Your Project</h2>
+        <form id="client-step1-form">
+            <label for="project-name">Project Name:</label>
+            <input type="text" id="project-name" name="project-name" required><br><br>
 
-// Close tutorial modal
-function closeTutorial(modalId) {
-    document.getElementById(modalId).style.display = 'none';
-}
+            <label for="client-name">Client Name:</label>
+            <input type="text" id="client-name" name="client-name" required><br><br>
 
-// Handle form submission for Client Step 1
-document.getElementById('client-step1-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    // Save form data to localStorage (temporary storage)
-    const formData = {
-        projectName: document.getElementById('project-name').value,
-        clientName: document.getElementById('client-name').value,
-        location: document.getElementById('location').value,
-        startDate: document.getElementById('start-date').value,
-        endDate: document.getElementById('end-date').value
-    };
-    localStorage.setItem('clientData', JSON.stringify(formData));
-    window.location.href = 'client-step2.html';
-});
+            <label for="location">Location:</label>
+            <select id="location" name="location" required>
+                <option value="">Select Location</option>
+                <option value="Soweto, Johannesburg, Gauteng">Soweto, Johannesburg, Gauteng</option>
+                <option value="Cape Town, Western Cape">Cape Town, Western Cape</option>
+            </select><br><br>
+
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date" name="start-date" required><br><br>
+
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date" name="end-date" required><br><br>
+
+            <button type="button" onclick="showTutorial('client-step1-tutorial')">Why This Step?</button>
+            <button type="submit">Next</button>
+        </form>
+    </main>
+    <div id="client-step1-tutorial" class="tutorial-modal" style="display: none;">
+        <div class="tutorial-content">
+            <h3>Legal Requirement</h3>
+            <p>Under <i>Construction Regulation 5(1)(a)</i>, as a client, you must provide health and safety specifications with your tender documents. This step identifies your project so contractors can plan accordingly.</p>
+            <button onclick="closeTutorial('client-step1-tutorial')">Got It</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
