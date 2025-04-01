@@ -11,7 +11,6 @@ function closeTutorial(modalId) {
 // Handle form submission for Client Step 1
 document.getElementById('client-step1-form').addEventListener('submit', function(e) {
     e.preventDefault();
-    // Save form data to localStorage (temporary storage)
     const formData = {
         projectName: document.getElementById('project-name').value,
         clientName: document.getElementById('client-name').value,
@@ -22,7 +21,8 @@ document.getElementById('client-step1-form').addEventListener('submit', function
     localStorage.setItem('clientData', JSON.stringify(formData));
     window.location.href = 'client-step2.html';
 });
-// Update risk table preview
+
+// Update risk table preview for Client Step 2
 document.querySelectorAll('input[name="hazards"]').forEach(checkbox => {
     checkbox.addEventListener('change', updateRiskTable);
 });
@@ -54,6 +54,7 @@ document.getElementById('client-step2-form').addEventListener('submit', function
     localStorage.setItem('clientData', JSON.stringify(clientData));
     window.location.href = 'client-step3.html';
 });
+
 // Handle form submission for Client Step 3
 document.getElementById('client-step3-form').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -67,6 +68,7 @@ document.getElementById('client-step3-form').addEventListener('submit', function
     localStorage.setItem('clientData', JSON.stringify(clientData));
     window.location.href = 'client-step4.html';
 });
+
 // Handle form submission for Client Step 4
 document.getElementById('client-step4-form').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -78,6 +80,7 @@ document.getElementById('client-step4-form').addEventListener('submit', function
     localStorage.setItem('clientData', JSON.stringify(clientData));
     window.location.href = 'client-output.html';
 });
+
 // Client Output - Generate PDFs
 document.addEventListener('DOMContentLoaded', function() {
     if (window.location.pathname.includes('client-output.html')) {
@@ -127,6 +130,7 @@ document.addEventListener('DOMContentLoaded', function() {
 function saveToDashboard() {
     window.location.href = 'dashboard.html';
 }
+
 // Handle form submission for Contractor Step 1
 document.getElementById('contractor-step1-form').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -141,6 +145,7 @@ document.getElementById('contractor-step1-form').addEventListener('submit', func
     localStorage.setItem('contractorData', JSON.stringify(formData));
     window.location.href = 'contractor-step2.html';
 });
+
 // Handle form submission for Contractor Step 2
 document.getElementById('contractor-step2-form').addEventListener('submit', function(e) {
     e.preventDefault();
@@ -153,59 +158,4 @@ document.getElementById('contractor-step2-form').addEventListener('submit', func
     formData.clientHazards = clientHazards;
     formData.clientPpe = clientPpe;
     formData.clientDocs = clientDocs;
-    // For MVP, we won't process the file upload; we'll simulate it
-    formData.specFile = fileInput.files.length > 0 ? fileInput.files[0].name : '';
-    localStorage.setItem('contractorData', JSON.stringify(formData));
-    window.location.href = 'contractor-step3.html';
-});
-// Update risk table preview for Contractor Step 3
-document.querySelectorAll('input[name="hazards"]').forEach(checkbox => {
-    checkbox.addEventListener('change', updateContractorRiskTable);
-});
-
-function updateContractorRiskTable() {
-    const tableBody = document.getElementById('risk-table-body');
-    tableBody.innerHTML = '';
-    const controls = {
-        'Electrical': 'Qualified Electricians',
-        'Heights': 'Harnesses',
-        'Dust': 'PPE and Ventilation'
-    };
-    document.querySelectorAll('input[name="hazards"]:checked').forEach(checkbox => {
-        const hazard = checkbox.value;
-        const row = document.createElement('tr');
-        row.innerHTML = `<td>${hazard}</td><td>${controls[hazard]}</td>`;
-        tableBody.appendChild(row);
-    });
-}
-
-// Handle form submission for Contractor Step 3
-document.getElementById('contractor-step3-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const activities = document.getElementById('activities').value;
-    const hazards = Array.from(document.querySelectorAll('input[name="hazards"]:checked')).map(cb => cb.value);
-    const controls = document.getElementById('controls').value;
-    const subcontractors = document.getElementById('subcontractors').value;
-
-    const formData = JSON.parse(localStorage.getItem('contractorData')) || {};
-    formData.activities = activities;
-    formData.hazards = hazards;
-    formData.controls = controls;
-    formData.subcontractors = subcontractors;
-    localStorage.setItem('contractorData', JSON.stringify(formData));
-    window.location.href = 'contractor-step4.html';
-});
-// Handle form submission for Contractor Step 4
-document.getElementById('contractor-step4-form').addEventListener('submit', function(e) {
-    e.preventDefault();
-    const chsOfficer = document.getElementById('chs-officer').value;
-    const firstAider = document.getElementById('first-aider').value;
-    const hsRep = document.getElementById('hs-rep').value;
-
-    const formData = JSON.parse(localStorage.getItem('contractorData')) || {};
-    formData.chsOfficer = chsOfficer;
-    formData.firstAider = firstAider;
-    formData.hsRep = hsRep;
-    localStorage.setItem('contractorData', JSON.stringify(formData));
-    window.location.href = 'contractor-step5.html';
-});
+    formData.specFile = fileInput.files.length > 0 ? file
