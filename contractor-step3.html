@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contractor Step 3 - Safety First</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Safety First</h1>
+        <div class="stepper">
+            <span>Step 1: Project</span> | 
+            <span>Step 2: Specs</span> | 
+            <span class="active">Step 3: Risks</span> | 
+            <span>Step 4: Appointments</span> | 
+            <span>Step 5: Plan</span>
+        </div>
+    </header>
+    <main>
+        <h2>Detail Your Project Risks</h2>
+        <form id="contractor-step3-form">
+            <label for="activities">Work Activities:</label>
+            <textarea id="activities" name="activities" rows="3" required placeholder="e.g., Shelving installation, electrical work"></textarea><br><br>
+
+            <label>Hazards:</label>
+            <input type="checkbox" name="hazards" value="Electrical"> Electrical<br>
+            <input type="checkbox" name="hazards" value="Heights"> Working at Heights<br>
+            <input type="checkbox" name="hazards" value="Dust"> Dust<br><br>
+
+            <label for="controls">Controls:</label>
+            <select id="controls" name="controls" required>
+                <option value="">Select Control</option>
+                <option value="Harnesses">Harnesses (for heights)</option>
+                <option value="Qualified Electricians">Qualified Electricians</option>
+                <option value="PPE and Ventilation">PPE and Ventilation (for dust)</option>
+            </select><br><br>
+
+            <label for="subcontractors">Subcontractors:</label>
+            <input type="text" id="subcontractors" name="subcontractors" placeholder="e.g., Electrical Experts, 10 employees"><br><br>
+
+            <h3>Preview</h3>
+            <table id="risk-table">
+                <thead>
+                    <tr>
+                        <th>Hazard</th>
+                        <th>Control</th>
+                    </tr>
+                </thead>
+                <tbody id="risk-table-body"></tbody>
+            </table>
+
+            <button type="button" onclick="showTutorial('contractor-step3-tutorial')">Why This Step?</button>
+            <button type="button" onclick="window.location.href='contractor-step2.html'">Back</button>
+            <button type="submit">Next</button>
+        </form>
+    </main>
+    <div id="contractor-step3-tutorial" class="tutorial-modal" style="display: none;">
+        <div class="tutorial-content">
+            <h3>Legal Requirement</h3>
+            <p><i>Regulation 7(1)</i> requires a site-specific risk assessment. This ensures all hazards are managed.</p>
+            <button onclick="closeTutorial('contractor-step3-tutorial')">Got It</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+// Show tutorial modal
+function showTutorial(modalId) {
+    document.getElementById(modalId).style.display = 'flex';
+}
+
+// Close tutorial modal
+function closeTutorial(modalId) {
+    document.getElementById(modalId).style.display = 'none';
+}
+
+// Handle form submission for Client Step 1
+document.getElementById('client-step1-form').addEventListener('submit', function(e) {
+    e.preventDefault();
+    // Save form data to localStorage (temporary storage)
+    const formData = {
+        projectName: document.getElementById('project-name').value,
+        clientName: document.getElementById('client-name').value,
+        location: document.getElementById('location').value,
+        startDate: document.getElementById('start-date').value,
+        endDate: document.getElementById('end-date').value
+    };
+    localStorage.setItem('clientData', JSON.stringify(formData));
+    window.location.href = 'client-step2.html';
+});

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contractor Step 1 - Safety First</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Safety First</h1>
+        <div class="stepper">
+            <span class="active">Step 1: Project</span> | 
+            <span>Step 2: Specs</span> | 
+            <span>Step 3: Risks</span> | 
+            <span>Step 4: Appointments</span> | 
+            <span>Step 5: Plan</span>
+        </div>
+    </header>
+    <main>
+        <h2>Set Up Your Project</h2>
+        <form id="contractor-step1-form">
+            <label for="project-name">Project Name:</label>
+            <input type="text" id="project-name" name="project-name" required><br><br>
+
+            <label for="client-name">Client Name:</label>
+            <input type="text" id="client-name" name="client-name" required><br><br>
+
+            <label for="contractor-name">Contractor Name:</label>
+            <input type="text" id="contractor-name" name="contractor-name" required><br><br>
+
+            <label for="location">Location:</label>
+            <select id="location" name="location" required>
+                <option value="">Select Location</option>
+                <option value="Soweto, Johannesburg, Gauteng">Soweto, Johannesburg, Gauteng</option>
+                <option value="Cape Town, Western Cape">Cape Town, Western Cape</option>
+            </select><br><br>
+
+            <label for="start-date">Start Date:</label>
+            <input type="date" id="start-date" name="start-date" required><br><br>
+
+            <label for="end-date">End Date:</label>
+            <input type="date" id="end-date" name="end-date" required><br><br>
+
+            <button type="button" onclick="showTutorial('contractor-step1-tutorial')">Why This Step?</button>
+            <button type="submit">Next</button>
+        </form>
+    </main>
+    <div id="contractor-step1-tutorial" class="tutorial-modal" style="display: none;">
+        <div class="tutorial-content">
+            <h3>Legal Requirement</h3>
+            <p>Under <i>Construction Regulation 7(1)</i>, you must develop a health and safety plan based on the client’s specifications. This step sets the foundation.</p>
+            <button onclick="closeTutorial('contractor-step1-tutorial')">Got It</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Step 4 - Safety First</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Safety First</h1>
+        <div class="stepper">
+            <span>Step 1: Project</span> | 
+            <span>Step 2: Risks</span> | 
+            <span>Step 3: Specs</span> | 
+            <span class="active">Step 4: Agreement</span>
+        </div>
+    </header>
+    <main>
+        <h2>Mandatary Agreement</h2>
+        <form id="client-step4-form">
+            <label for="contractor-name">Contractor Name:</label>
+            <input type="text" id="contractor-name" name="contractor-name" required><br><br>
+
+            <label for="agreement-terms">Agreement Terms:</label>
+            <textarea id="agreement-terms" name="agreement-terms" rows="5" required>Contractor assumes safety liability per OHSA Section 37(2).</textarea><br><br>
+
+            <button type="button" onclick="showTutorial('client-step4-tutorial')">Why This Step?</button>
+            <button type="button" onclick="window.location

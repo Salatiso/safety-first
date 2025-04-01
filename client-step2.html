@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Step 2 - Safety First</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Safety First</h1>
+        <div class="stepper">
+            <span>Step 1: Project</span> | 
+            <span class="active">Step 2: Risks</span> | 
+            <span>Step 3: Specs</span> | 
+            <span>Step 4: Agreement</span>
+        </div>
+    </header>
+    <main>
+        <h2>Identify Initial Hazards</h2>
+        <form id="client-step2-form">
+            <label>Hazards:</label>
+            <input type="checkbox" name="hazards" value="Electrical"> Electrical<br>
+            <input type="checkbox" name="hazards" value="Heights"> Working at Heights<br>
+            <input type="checkbox" name="hazards" value="Dust"> Dust<br>
+            <label for="other-hazards">Other:</label>
+            <input type="text" id="other-hazards" name="other-hazards"><br><br>
+
+            <h3>Preview</h3>
+            <table id="risk-table">
+                <thead>
+                    <tr>
+                        <th>Hazard</th>
+                        <th>Control Suggestion</th>
+                    </tr>
+                </thead>
+                <tbody id="risk-table-body"></tbody>
+            </table>
+
+            <button type="button" onclick="showTutorial('client-step2-tutorial')">Why This Step?</button>
+            <button type="button" onclick="window.location.href='client-step1.html'">Back</button>
+            <button type="submit">Next</button>
+        </form>
+    </main>
+    <div id="client-step2-tutorial" class="tutorial-modal" style="display: none;">
+        <div class="tutorial-content">
+            <h3>Legal Requirement</h3>
+            <p><i>Regulation 5(1)(a)</i> requires a baseline risk assessment to inform contractors of site-specific hazards. This ensures they price and plan for safety.</p>
+            <button onclick="closeTutorial('client-step2-tutorial')">Got It</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

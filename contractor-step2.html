@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contractor Step 2 - Safety First</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Safety First</h1>
+        <div class="stepper">
+            <span>Step 1: Project</span> | 
+            <span class="active">Step 2: Specs</span> | 
+            <span>Step 3: Risks</span> | 
+            <span>Step 4: Appointments</span> | 
+            <span>Step 5: Plan</span>
+        </div>
+    </header>
+    <main>
+        <h2>Upload Client Specifications</h2>
+        <form id="contractor-step2-form">
+            <label>Upload File (Optional):</label>
+            <input type="file" id="spec-file" name="spec-file" accept=".pdf,.doc,.docx"><br><br>
+
+            <label>Or Enter Manually:</label><br>
+            <label>Hazards Identified by Client:</label>
+            <input type="text" id="client-hazards" name="client-hazards" placeholder="e.g., Electrical, Heights"><br><br>
+
+            <label>Required PPE:</label>
+            <input type="text" id="client-ppe" name="client-ppe" placeholder="e.g., Helmets, Gloves"><br><br>
+
+            <label>Required Documents:</label>
+            <input type="text" id="client-docs" name="client-docs" placeholder="e.g., Letter of Good Standing"><br><br>
+
+            <button type="button" onclick="showTutorial('contractor-step2-tutorial')">Why This Step?</button>
+            <button type="button" onclick="window.location.href='contractor-step1.html'">Back</button>
+            <button type="submit">Next</button>
+        </form>
+    </main>
+    <div id="contractor-step2-tutorial" class="tutorial-modal" style="display: none;">
+        <div class="tutorial-content">
+            <h3>Legal Requirement</h3>
+            <p><i>Regulation 7(1)</i> mandates your plan address the client’s specs. Uploading ensures accuracy; manual entry works if you’ve got details.</p>
+            <button onclick="closeTutorial('contractor-step2-tutorial')">Got It</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

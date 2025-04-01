@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contractor Step 4 - Safety First</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Safety First</h1>
+        <div class="stepper">
+            <span>Step 1: Project</span> | 
+            <span>Step 2: Specs</span> | 
+            <span>Step 3: Risks</span> | 
+            <span class="active">Step 4: Appointments</span> | 
+            <span>Step 5: Plan</span>
+        </div>
+    </header>
+    <main>
+        <h2>Assign Key Safety Roles</h2>
+        <form id="contractor-step4-form">
+            <label for="chs-officer">CHS Officer (Name, SACPCMP No.):</label>
+            <input type="text" id="chs-officer" name="chs-officer" required placeholder="e.g., Sarah Nkosi, CHSO/123/2025"><br><br>
+
+            <label for="first-aider">First Aider:</label>
+            <input type="text" id="first-aider" name="first-aider" required placeholder="e.g., Lerato Dlamini"><br><br>
+
+            <label for="hs-rep">Health and Safety Rep:</label>
+            <input type="text" id="hs-rep" name="hs-rep" required placeholder="e.g., Sipho Mthembu"><br><br>
+
+            <button type="button" onclick="showTutorial('contractor-step4-tutorial')">Why This Step?</button>
+            <button type="button" onclick="window.location.href='contractor-step3.html'">Back</button>
+            <button type="submit">Next</button>
+        </form>
+    </main>
+    <div id="contractor-step4-tutorial" class="tutorial-modal" style="display: none;">
+        <div class="tutorial-content">
+            <h3>Legal Requirement</h3>
+            <p><i>Regulation 8(5)</i> and <i>OHSA Section 17</i> mandate these appointments for compliance and worker safety.</p>
+            <button onclick="closeTutorial('contractor-step4-tutorial')">Got It</button>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
